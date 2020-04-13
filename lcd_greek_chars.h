@@ -119,7 +119,7 @@ void ektypwse(LiquidCrystal_I2C lcd, unsigned char text[], unsigned int row, uns
             case 161: case 129:                                 lcd.write('P');   break;  
             case 163: case 131: case 130:                       lcd.write(SIGMA); break; 
             case 164: case 132:                                 lcd.write('T');   break; 
-            case 165: case 133: case 141: case 139:             lcd.write('Y');   break;                  
+            case 165: case 133: case 141: case 139: case 176:   lcd.write('Y');   break;                  
             case 166: case 134:                                 lcd.write(FI);    break; 
             case 167: case 135:                                 lcd.write('X');   break;  
             case 168: case 136:                                 lcd.write(PSI);   break; 
