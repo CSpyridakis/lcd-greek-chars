@@ -1,4 +1,4 @@
-# lcd-greek-chars ![MIT license](https://img.shields.io/github/license/CSpyridakis/lcd-greek-chars.svg?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/lcd-greek-chars.svg?style=plastic)
+# lcd-greek-chars ![license](https://img.shields.io/github/license/CSpyridakis/lcd-greek-chars?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/lcd-greek-chars.svg?style=plastic)
 
 A header file to use Greek Characters on 2004/1602 LCD Screen with arduino or other related MCUs.
 
