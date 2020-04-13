@@ -27,6 +27,9 @@
     #include <LiquidCrystal_I2C.h>    
 #endif
 
+// 2004 LCD
+#define ROWS 4
+#define COLUMNS 20
 
 #ifndef FALSE
     #define FALSE 0
@@ -95,40 +98,43 @@ void createGreekChars(LiquidCrystal_I2C lcd){
  *  \see https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
  */
 void ektypwse(LiquidCrystal_I2C lcd, unsigned char text[], unsigned int row, unsigned int column){
-    lcd.setCursor(column, row);
-    int i=0;
+    
+    unsigned int i=0, r=row, c=column;
+    lcd.setCursor(c, r);
     while(text[i]!='\0'){
+        if (c >=(unsigned int)COLUMNS) {r++; c=0; lcd.setCursor(c, r);}
+        if (r >=(unsigned int)ROWS){break;}
         switch (text[i]){
             case 206: case 127: case 207: break;                // Weird Characters
-            case 145: case 177: case 172:                       lcd.write('A');   break;           
-            case 146: case 178:                                 lcd.write('B');   break;               
-            case 147: case 179:                                 lcd.write(GAMA);  break;
-            case 148: case 180:                                 lcd.write(DELTA); break;             
-            case 149: case 181: case 173:                       lcd.write('E');   break;                  
-            case 150: case 182:                                 lcd.write('Z');   break;               
-            case 151: case 183: case 174:                       lcd.write('H');   break; 
-            case 152: case 184:                                 lcd.write(THITA); break;             
-            case 153: case 185: case 175: case 144: case 138:   lcd.write('I');   break;             
-            case 154: case 186:                                 lcd.write('K');   break;       
-            case 155: case 187:                                 lcd.write(LAMDA); break;              
-            case 156: case 188:                                 lcd.write('M');   break;               
-            case 157: case 189:                                 lcd.write('N');   break;               
-            case 158: case 190:                                 lcd.write(KSI);   break;   
-            case 159: case 191: case 140:                       lcd.write('O');   break;                     
-            case 160: case 128:                                 lcd.write(PI);    break; 
-            case 161: case 129:                                 lcd.write('P');   break;  
-            case 163: case 131: case 130:                       lcd.write(SIGMA); break; 
-            case 164: case 132:                                 lcd.write('T');   break; 
-            case 165: case 133: case 141: case 139: case 176:   lcd.write('Y');   break;                  
-            case 166: case 134:                                 lcd.write(FI);    break; 
-            case 167: case 135:                                 lcd.write('X');   break;  
-            case 168: case 136:                                 lcd.write(PSI);   break; 
-            case 169: case 137: case 142:                       lcd.write(OMEGA); break; 
-            default: lcd.write(text[i]); if(DEBUG) Serial.println(int(text[i]));  break;              
+            case 145: case 177: case 172:                       lcd.write('A');   c++; break;           
+            case 146: case 178:                                 lcd.write('B');   c++; break;               
+            case 147: case 179:                                 lcd.write(GAMA);  c++; break;
+            case 148: case 180:                                 lcd.write(DELTA); c++; break;             
+            case 149: case 181: case 173:                       lcd.write('E');   c++; break;                  
+            case 150: case 182:                                 lcd.write('Z');   c++; break;               
+            case 151: case 183: case 174:                       lcd.write('H');   c++; break; 
+            case 152: case 184:                                 lcd.write(THITA); c++; break;             
+            case 153: case 185: case 175: case 144: case 138:   lcd.write('I');   c++; break;             
+            case 154: case 186:                                 lcd.write('K');   c++; break;       
+            case 155: case 187:                                 lcd.write(LAMDA); c++; break;              
+            case 156: case 188:                                 lcd.write('M');   c++; break;               
+            case 157: case 189:                                 lcd.write('N');   c++; break;               
+            case 158: case 190:                                 lcd.write(KSI);   c++; break;   
+            case 159: case 191: case 140:                       lcd.write('O');   c++; break;                     
+            case 160: case 128:                                 lcd.write(PI);    c++; break; 
+            case 161: case 129:                                 lcd.write('P');   c++; break;  
+            case 163: case 131: case 130:                       lcd.write(SIGMA); c++; break; 
+            case 164: case 132:                                 lcd.write('T');   c++; break; 
+            case 165: case 133: case 141: case 139: case 176:   lcd.write('Y');   c++; break;                  
+            case 166: case 134:                                 lcd.write(FI);    c++; break; 
+            case 167: case 135:                                 lcd.write('X');   c++; break;  
+            case 168: case 136:                                 lcd.write(PSI);   c++; break; 
+            case 169: case 137: case 142:                       lcd.write(OMEGA); c++; break; 
+            default: lcd.write(text[i]); if(DEBUG) Serial.println(int(text[i]));  c++; break;              
         }
-        i++;
+        i++; 
+        delay(1);
     }
-    delay(1);
 }
 
 #endif //LCD_GREEK_CHARS_H
