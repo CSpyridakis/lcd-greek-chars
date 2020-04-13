@@ -12,7 +12,7 @@ createGreekChars() και κάθε φορά που θέλετε να εμφαν�
 
 ![Example](./doc/example.jpg)
 
-![Example2](./doc/example2.jpg)
+![Example2](./doc/exampl2.jpg)
 
 ## Note:
 Δυστυχώς λόγο του περιορισμού της μνήμης του HD44780 που βρίσκεται
