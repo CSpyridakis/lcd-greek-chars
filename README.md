@@ -1,6 +1,6 @@
 # lcd-greek-chars ![license](https://img.shields.io/github/license/CSpyridakis/lcd-greek-chars?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/lcd-greek-chars.svg?style=plastic)
 
-A header file to use Greek Characters on 2004/1602 LCD Screen with arduino or other related MCUs.
+A header file to use Greek Characters on 2004/1602 LCD Screen (with or without I2C) on arduino or other related MCUs.
 
 ## Χρήση
 Για να μπορέσετε να εμφανίσετε ελληνικούς χαρακτήρες στην οθόνη σας, αρκεί να κάνετε
@@ -17,6 +17,6 @@ createGreekChars() και κάθε φορά που θέλετε να εμφαν�
 ## Note:
 Δυστυχώς λόγο του περιορισμού της μνήμης του HD44780 που βρίσκεται
 συνήθως σε αυτές τις οθόνες μπορούν να προσθέσουμε μόνο 8 επιπλέον
-χαρακτήρες τα οποία χρειάζονται, για να γίνει εφικτή η εγγραφή σε 
+χαρακτήρες οι οποίοι χρειάζονται, για να γίνει εφικτή η εγγραφή σε 
 ελληνικά. Για αυτόν τον λόγο μετατρέπεται κάθε ελληνικός χαρακτήρας 
 σε κεφαλαία ωστέ να μπορεί να γραφτεί οποιαδήποτε ελληνική λέξη.
