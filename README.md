@@ -1,6 +1,6 @@
 # lcd-greek-chars ![license](https://img.shields.io/github/license/CSpyridakis/lcd-greek-chars?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/lcd-greek-chars.svg?style=plastic)
 
-A header file to use Greek Characters on 2004/1602 LCD Screen (with or without I2C) on arduino or other related MCUs.
+A header file to use Greek Characters on 2004/1602 LCD Screen (with or without I2C) from arduino or other related MCUs.
 
 ## Χρήση
 Για να μπορέσετε να εμφανίσετε ελληνικούς χαρακτήρες στην οθόνη σας, αρκεί να κάνετε
