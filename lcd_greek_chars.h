@@ -1,15 +1,18 @@
 // ---------------------------------------------------------------------------------
-//   Use greek characters on 1602/2004 LCD screen with arduino or other related MCUs
+//   A header file to use Greek Characters on 2004/1602 LCD Screen (with or without 
+//   I2C) from arduino or other related MCUs.
 //
 //   Author  : Spyridakis Christos
 //   Email   : spyridakischristos@gmail.com
 //   Created Date : 12/4/2020
-//   Last Updated : 13/4/2020
+//   Last Updated : 29/4/2020
 //  
-//   Description: Δυστυχώς λόγο του περιορισμού της μνήμης του HD44780 που βρίσκεται
-//                συνήθως σε αυτές τις οθόνες μπορούν να προσθέσουμε μόνο 8 επιπλέον
-//                χαρακτήρες, για να γίνει εφικτή η εγγραφή σε ελληνικά. Για αυτόν τον 
-//                λόγο μετατρέπεται κάθε ελληνικός χαρακτήρας σε κεφαλαία.
+//   Description: Δυστυχώς λόγω του περιορισμού της μνήμης του HD44780 που βρίσκεται
+//                συνήθως σε αυτές τις οθόνες μπορούν να προστεθούν μόνο 8 επιπλέον
+//                χαρακτήρες, οι οποίοι είναι και αναγκαίοι για να γίνει εφικτή η 
+//                εγγραφή σε ελληνικά. Για αυτόν τον λόγο μετατρέπεται κάθε  
+//                ελληνικός χαρακτήρας σε κεφαλαία ωστέ να μπορεί να γραφτεί
+//                οποιαδήποτε ελληνική λέξη.
 //
 //   See: 
 //      - [1] https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
@@ -27,10 +30,8 @@
     #include <LiquidCrystal_I2C.h>    
 #endif
 
-// 2004 LCD
-#define ROWS 4
-#define COLUMNS 20
 
+// For Debugging and troubleshooting
 #ifndef FALSE
     #define FALSE 0
 #endif
@@ -42,6 +43,18 @@
 #ifndef DEBUG
     #define DEBUG FALSE
 #endif
+
+
+// Define in your main sketch your lcd's ROW and COLUMN number
+// or use my predefined values
+#ifndef ROWS
+    #define ROWS 4
+#endif
+
+#ifndef COLUMNS
+    #define COLUMNS 20
+#endif
+
 
 byte Gama[8]  = {B11111, B10000, B10000, B10000, B10000, B10000, B10000};
 byte Delta[8] = {B00100, B01010, B01010, B10001, B10001, B10001, B11111};
@@ -68,7 +81,8 @@ byte Omega[8] = {B01110, B10001, B10001, B10001, B01010, B01010, B11011};
 
 /**
  *  \brief  Create the required characters. Some Greek characters (e.g. A, K, P, O) could 
- *          be borrowed from English, others like Φ, Ψ, Σ, etc. need to design from scratch.
+ *          be borrowed from Latin alphabet, others like Φ, Ψ, Σ, etc. need to be designed 
+ *          from scratch.
  *  
  *  \param lcd  LCD's Object that you created on your sketch initialization
  * 
@@ -91,7 +105,7 @@ void createGreekChars(LiquidCrystal_I2C lcd){
  *  \brief  Display text on LCD
  * 
  *  \param lcd     LCD's Object that you created on your sketch initialization
- *  \param text    Text that you want to display (it could contain greek/english chars, symbols or numbers)
+ *  \param text    Text that you want to display (it could contain greek/latin chars, symbols or numbers)
  *  \param row     The row that you want to display text
  *  \param column  The column that you want to display text
  * 
@@ -133,7 +147,6 @@ void ektypwse(LiquidCrystal_I2C lcd, unsigned char text[], unsigned int row, uns
             default: lcd.write(text[i]); if(DEBUG) Serial.println(int(text[i]));  c++; break;              
         }
         i++; 
-        delay(1);
     }
 }
 
