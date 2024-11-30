@@ -65,18 +65,18 @@ byte Pi[8]    = {B11111, B10001, B10001, B10001, B10001, B10001, B10001};
 byte Fi[8]    = {B00100, B01110, B10101, B10101, B10101, B01110, B00100};
 byte Psi[8]   = {B10001, B10101, B10101, B10101, B01110, B00100, B00100};
 byte Sigma[8] = {B11111, B01000, B00100, B00010, B00100, B01000, B11111};
-byte Omega[8] = {B01110, B10001, B10001, B10001, B01010, B01010, B11011};
+byte Omega[8] = {B01110, B10001, B10001, B10001, B10001, B01010, B11011};
 
 #define GAMA 0
 #define DELTA 1
-#define THITA 2
-#define LAMDA 3
-#define KSI 4
-#define PI 5
-#define FI 6
-#define PSI 7
+#define LAMDA 2
+#define KSI 3
+#define PI 4
+#define FI 5
+#define PSI 6
+#define OMEGA 7
+#define THITA 242
 #define SIGMA 246
-#define OMEGA 244
 
 
 /**
@@ -92,12 +92,12 @@ void createGreekChars(LiquidCrystal_I2C lcd){
     lcd.clear();
     lcd.createChar(GAMA, Gama);
     lcd.createChar(DELTA, Delta);
-    lcd.createChar(THITA, Thita);
     lcd.createChar(LAMDA, Lamda);
     lcd.createChar(KSI, Ksi);
     lcd.createChar(PI, Pi);
     lcd.createChar(FI, Fi);
     lcd.createChar(PSI, Psi);
+    lcd.createChar(OMEGA, Omega);
 }
 
 
